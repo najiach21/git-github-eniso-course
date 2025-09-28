@@ -285,71 +285,8 @@ body {
     backdrop-filter: blur(10px);
 }
 
-/* Collaboration Section */
-.collaboration-section {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 50px;
-    border-radius: 25px;
-    margin: 50px 0;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
-
-.collaboration-section .section-title {
-    color: white;
-}
-
-.collaboration-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.collaboration-item {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.collaboration-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.collab-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.collaboration-item h3 {
-    margin-bottom: 15px;
-    font-size: 1.4em;
-}
-
-.skills-checklist {
-    text-align: left;
-}
-
-.skill-item {
-    padding: 8px 0;
-    font-size: 0.95em;
-}
-
-.achievement {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px 15px;
-    border-radius: 10px;
-    margin: 8px 0;
-    font-size: 0.9em;
-}
-
-/* Interactive Section */
-.interactive-section {
+/* Fun Activities Section */
+.activities-section {
     background: white;
     padding: 50px;
     border-radius: 25px;
@@ -357,120 +294,44 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-.interactive-grid {
+.activities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin-top: 40px;
 }
 
-.interactive-item {
+.activity-placeholder {
     background: linear-gradient(145deg, #f7fafc, #edf2f7);
     padding: 30px;
     border-radius: 20px;
-    border: 2px solid #e2e8f0;
+    border: 2px dashed #cbd5e0;
     text-align: center;
     transition: all 0.3s ease;
+    opacity: 0.8;
 }
 
-.interactive-item:hover {
+.activity-placeholder:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     border-color: #667eea;
+    opacity: 1;
 }
 
-.interactive-item h3 {
-    color: #2d3748;
+.placeholder-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.activity-placeholder h3 {
+    color: #4a5568;
     margin-bottom: 10px;
     font-size: 1.3em;
 }
 
-.interactive-item p {
-    color: #4a5568;
-    margin-bottom: 15px;
-}
-
-.feature-status {
-    background: #fed7d7;
-    color: #c53030;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 500;
-    display: inline-block;
-}
-
-.placeholder {
-    opacity: 0.8;
-    border-style: dashed;
-}
-
-/* Progress Section */
-.progress-section {
-    background: #2d3748;
-    color: white;
-    padding: 50px;
-    border-radius: 25px;
-    margin: 50px 0;
-}
-
-.progress-section .section-title {
-    color: white;
-}
-
-.progress-container {
-    max-width: 800px;
-    margin: 40px auto 0;
-}
-
-.progress-item {
-    margin: 25px 0;
-}
-
-.progress-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 1.1em;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #48bb78, #38a169);
-    border-radius: 10px;
-    transition: width 2s ease-in-out;
-    position: relative;
-}
-
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: progressShine 2s infinite;
-}
-
-@keyframes progressShine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-.progress-percent {
-    float: right;
-    font-weight: bold;
-    color: #48bb78;
-    margin-top: 5px;
+.activity-placeholder p {
+    color: #718096;
+    font-size: 0.95em;
 }
 
 /* Footer Styles */
@@ -484,7 +345,7 @@ body {
 
 .footer-main {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .footer-main h2 {
@@ -497,6 +358,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
     margin: 30px 0;
+    min-height: 50px; /* Placeholder space for future contacts */
 }
 
 .contact-item {
@@ -632,22 +494,13 @@ body {
         font-size: 2em;
     }
 
-    .team-section,
-    .collaboration-section,
-    .interactive-section,
-    .progress-section,
+    .activities-section,
     .footer {
         padding: 30px 20px;
         margin: 30px 0;
     }
 
-    .team-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .collaboration-grid,
-    .interactive-grid {
+    .activities-grid {
         grid-template-columns: 1fr;
     }
 

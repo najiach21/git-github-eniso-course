@@ -371,13 +371,6 @@ function initializeDynamicFeatures() {
     // This function can be called by student features
     console.log('🎉 Initializing dynamic features...');
     
-    // Students can add their initialization code here through tickets
-    
-    // TODO: Initialize team playlist (ticket #004)
-    // TODO: Initialize favorite foods section (ticket #005)
-    // TODO: Initialize games section (ticket #006)
-    // TODO: Initialize color theme picker (ticket #013)
-    
     console.log('✅ Dynamic features ready!');
 }
 
