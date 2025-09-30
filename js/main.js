@@ -14,33 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Counter Animation for Header Stats
 function initializeCounters() {
-    const counters = {
-        'commits-count': 0,
-        'members-count': 1,
-        'features-count': 0
-    };
-    
-    // Animate counters on page load
-    Object.keys(counters).forEach(id => {
-        animateCounter(id, counters[id]);
-    });
-}
-
-function animateCounter(elementId, targetValue) {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-    
-    let currentValue = 0;
-    const increment = targetValue / 50; // 50 steps
-    
-    const timer = setInterval(() => {
-        currentValue += increment;
-        if (currentValue >= targetValue) {
-            currentValue = targetValue;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(currentValue);
-    }, 30);
+    const teamMembers = document.querySelectorAll('.team-member');
+    const counterElement = document.getElementById('members-count');
+    if (counterElement) {
+        counterElement.textContent = teamMembers.length;
+    }
 }
 
 // Update counters when new features are added
@@ -49,10 +27,7 @@ function updateCounter(counterId, increment = 1) {
     if (counter) {
         const currentValue = parseInt(counter.textContent) || 0;
         const newValue = currentValue + increment;
-        animateCounter(counterId, newValue);
-        
-        // Add celebration effect
-        celebrateUpdate(counter);
+        counter.textContent = newValue;
     }
 }
 
@@ -128,14 +103,14 @@ function createSparkleEffect(element) {
 }
 
 function updateMemberCount() {
-    // Count actual team members (excluding example card)
-    const realMembers = document.querySelectorAll('.team-member:not(.example-card)');
-    const memberCount = realMembers.length;
-    
+    // Count actual team members
+    const allMembers = document.querySelectorAll('.team-member');
+    const memberCount = allMembers.length;
+
     // Update the counter
     const counterElement = document.getElementById('members-count');
     if (counterElement) {
-        counterElement.textContent = memberCount + 1; // +1 for the example
+        counterElement.textContent = memberCount;
     }
 }
 
@@ -300,24 +275,6 @@ function addContributor(name, contribution) {
     }
 }
 
-function addAchievement(achievementText) {
-    const achievementsContainer = document.getElementById('achievements');
-    if (achievementsContainer) {
-        const achievement = document.createElement('div');
-        achievement.className = 'achievement';
-        achievement.textContent = achievementText;
-        achievementsContainer.appendChild(achievement);
-        
-        // Celebrate new achievement
-        achievement.animate([
-            { transform: 'scale(0)', opacity: 0 },
-            { transform: 'scale(1.1)', opacity: 1 },
-            { transform: 'scale(1)', opacity: 1 }
-        ], { duration: 500, easing: 'ease-out' });
-        
-        updateCounter('features-count');
-    }
-}
 
 // Keyboard shortcuts for fun
 document.addEventListener('keydown', function(e) {
@@ -375,13 +332,12 @@ function initializeDynamicFeatures() {
 }
 
 // Call dynamic features initialization
-setTimeout(initializeDynamicFeatures, 1000);
+setTimeout(initializeDynamicFeatures, 300);
 
 // Export functions for students to use in their tickets
 window.teamWebsite = {
     updateCounter,
     addContributor,
-    addAchievement,
     showTemporaryMessage,
     createSparkleEffect,
     showGitTip
